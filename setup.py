@@ -1,7 +1,11 @@
 from setuptools import setup, find_packages
+from pathlib import Path
 
-VERSION = "0.1.1"
+VERSION = "0.1.7"
 DESCRIPTION = "A Godspeed task manager API wrapper"
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="godspeed_api",
@@ -9,7 +13,7 @@ setup(
     author="Artem Trubacheev",
     author_email="almaz5200@gmail.com",
     description=DESCRIPTION,
-    long_description=DESCRIPTION,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=[

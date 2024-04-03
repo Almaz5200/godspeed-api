@@ -1,6 +1,7 @@
 from typing import List, Optional
 import requests
 import datetime
+import logging
 
 
 class AuthError(Exception):
@@ -13,15 +14,16 @@ class API:
         self,
         username: str,
         password: str,
-        hostname: str = "https://api.godspeedapp.com/",
+        hostname: str = "https://api.godspeedapp.com",
     ):
         self.hostname = hostname
+        self.token = None
 
         try:
             auth_result = self._send_post_request(
-                "/auth/login",
+                "/sessions/sign_in",
                 {
-                    "username": username,
+                    "email": username,
                     "password": password,
                 },
             ).json()
@@ -46,17 +48,18 @@ class API:
     ) -> dict:
         str_date_time = due_at.strftime("%Y-%m-%dT%H:%M:%SZ") if due_at else None
 
-        return self._send_post_request(
-            "/tasks",
-            {
-                "title": title,
-                "list_id": list_id,
-                "location": location,
-                "notes": notes,
-                "due_at": str_date_time,
-                "label_names": label_names,
-            },
-        ).json()
+        args = {
+            "title": title,
+            "list_id": list_id,
+            "location": location,
+            "notes": notes,
+            "due_at": str_date_time,
+            "label_names": label_names,
+        }
+
+        args = {k: v for k, v in args.items() if v is not None}
+
+        return self._send_post_request("/tasks", args).json()
 
     def _send_post_request(
         self,
@@ -68,4 +71,7 @@ class API:
         if self.token:
             headers["Authorization"] = "Bearer " + self.token
 
-        return requests.request("POST", self.hostname + endpoint, json=body)
+        res = requests.post(self.hostname + endpoint, json=body, headers=headers)
+        logging.info(f"POST {self.hostname + endpoint} {body} {res.status_code}")
+
+        return res
