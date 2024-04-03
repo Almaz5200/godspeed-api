@@ -3,7 +3,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Python API package for [Godspeed](https://godspeedapp.com/). The package implements basic authentication and task creation functionalities, this will be extended as the API is documented more.
+A Python API wrapper for [Godspeed](https://godspeedapp.com/). The package implements basic authentication and task creation functionalities, this will be extended as the API is documented more.
 
 ## Installation
 
