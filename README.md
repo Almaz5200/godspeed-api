@@ -3,8 +3,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Python API wrapper for [Godspeed](https://godspeedapp.com/). The package implements basic authentication and task creation functionalities, this will be extended as the API is documented more.
-
+A Python API wrapper for [Godspeed](https://godspeedapp.com/). 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Godspeed-API.
@@ -12,6 +11,12 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Godspee
 ```bash
 pip install godspeed-api
 ```
+
+## Features
+
+- Task creation (`create_task`)
+- Task modification (`update_task`)
+- Paginated task query (`list_tasks`)
 
 ## Usage
 ```python

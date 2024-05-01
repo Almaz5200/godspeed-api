@@ -1,4 +1,5 @@
 import datetime
+import json
 import logging
 from os import environ
 import godspeed_api
@@ -27,4 +28,24 @@ class TestAPI(unittest.TestCase):
             due_at=due_at,
             # TODO: Uncomment after api either allows for new tags here or returns an error
             # label_names=["test"],
+        )
+
+    def test_list_tasks(self):
+        api = godspeed_api.API(self.login, self.password)
+
+        result = api.list_tasks()
+
+        for task in result.tasks:
+            print(task.title)
+
+    def test_update_task(self):
+        api = godspeed_api.API(self.login, self.password)
+
+        result = api.list_tasks().tasks[0]
+
+        print(f"Updating task {result.title}")
+        api.update_task(
+            result.id,
+            title=result.title + " [Upd]",
+            due_at=datetime.datetime.now() + datetime.timedelta(days=1),
         )

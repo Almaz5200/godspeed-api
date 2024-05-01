@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = "0.1.7"
+VERSION = "0.2.0"
 DESCRIPTION = "A Godspeed task manager API wrapper"
 
 this_directory = Path(__file__).parent
@@ -18,6 +18,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "requests",
+        "dacite",
     ],
     keywords=["python", "godspeed"],
     classifiers=[
