@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from typing import List, Optional
 from datetime import datetime
 
-from .Label import Label
-from .TaskList import TaskList
-from .Task import Task
+from Label import Label
+from TaskList import TaskList
+from Task import Task
 
 
 @dataclass

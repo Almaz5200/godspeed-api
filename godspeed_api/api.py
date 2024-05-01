@@ -6,8 +6,8 @@ import requests
 import datetime
 import logging
 
-from .Models.ListTasksResponse import ListTasksResponse
-from .Models.Status import Status
+from Models.ListTasksResponse import ListTasksResponse
+from Models.Status import Status
 
 
 class AuthError(Exception):

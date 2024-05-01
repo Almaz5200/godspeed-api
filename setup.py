@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 DESCRIPTION = "A Godspeed task manager API wrapper"
 
 this_directory = Path(__file__).parent

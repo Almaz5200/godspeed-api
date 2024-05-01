@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List, Optional
 from datetime import datetime
 
-from .Attachment import Attachment
+from Attachment import Attachment
 
 
 @dataclass
